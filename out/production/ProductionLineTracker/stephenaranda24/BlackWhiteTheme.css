@@ -1,0 +1,7 @@
+.root {
+  -fx-background-image: url("blacktexture.jpg");
+}
+
+.roots {
+  -fx-background-image: url("whiteback.jpg");
+}
