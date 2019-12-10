@@ -60,9 +60,11 @@
                 <TableView fx:id="productTableView" layoutX="6.0" layoutY="243.0" prefHeight="200.0"
                   prefWidth="689.0">
                   <columns>
-                    <TableColumn fx:id="productNameCol" prefWidth="99.0" text="Product Name"/>
-                    <TableColumn fx:id="manufacturerCol" prefWidth="88.0" text="Manufacturer"/>
-                    <TableColumn fx:id="itemTypeCol" prefWidth="75.0" text="Item Type"/>
+                    <TableColumn fx:id="productIdCol" prefWidth="74.0" text="Product ID"/>
+                    <TableColumn fx:id="productNameCol" prefWidth="269.0" text="Product Name"/>
+                    <TableColumn fx:id="manufacturerCol" minWidth="0.0" prefWidth="169.0"
+                      text="Manufaturer"/>
+                    <TableColumn fx:id="itemTypeCol" prefWidth="176.0" text="Item Type"/>
                   </columns>
                 </TableView>
               </children>
@@ -74,13 +76,14 @@
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="171.0" prefWidth="520.0"
               styleClass="roots" stylesheets="@BlackWhiteTheme.css">
               <children>
-                <Label layoutX="27.0" layoutY="23.0" text="Choose Products"/>
-                <ListView fx:id="productListView" layoutX="27.0" layoutY="40.0" prefHeight="200.0"
-                  prefWidth="381.0"/>
-                <Label layoutX="536.0" layoutY="23.0" text="Choose Quantity"/>
-                <ComboBox fx:id="numbersList" layoutX="536.0" layoutY="40.0" prefWidth="150.0"/>
-                <Button layoutX="536.0" layoutY="218.0" mnemonicParsing="false"
-                  onAction="#handleRecordButtonAction" text="Record Production"/>
+                <Label layoutX="27.0" layoutY="2.0" text="Choose Products"/>
+                <ListView fx:id="productListView" layoutX="27.0" layoutY="22.0" prefHeight="450.0"
+                  prefWidth="489.0"/>
+                <Label layoutX="536.0" layoutY="59.0" text="Choose Quantity"/>
+                <ComboBox fx:id="numbersList" layoutX="536.0" layoutY="84.0" prefWidth="150.0"/>
+                <Button layoutX="542.0" layoutY="243.0" mnemonicParsing="false"
+                  onAction="#handleRecordButtonAction" prefHeight="55.0" prefWidth="138.0"
+                  text="Record Production"/>
               </children>
             </AnchorPane>
           </content>

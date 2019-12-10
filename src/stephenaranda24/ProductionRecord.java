@@ -1,6 +1,11 @@
 package stephenaranda24;
 
+import java.sql.Time;
+import java.sql.Timestamp;
 import java.util.Date;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 /**
  * This class contains all of the details for a production record such as the production number, the
  * product Id, the serial number, date produced, products produced, and their item counts.
@@ -14,8 +19,9 @@ public class ProductionRecord {
   private int productId;
   private String serialNumber;
   private Date dateProduced;
-  private Product productProduced;
-  private int itemCount;
+  // private Product productProduced;
+  // private ProductionRecord productionRecordProduced;
+  // private int itemCount = 0;
 
   @Override
   public String toString() {
@@ -26,20 +32,11 @@ public class ProductionRecord {
         + productId
         + " "
         + "Serial Num: "
-        + productProduced.getManufacturer().substring(0, 3)
-        + productProduced.getType().getCode()
-        + "0000"
-        + itemCount
+        + serialNumber
         + " "
         + "Date: "
-        + new Date();
-  }
-
-  public ProductionRecord(int productId) {
-    this.productId = productId;
-    productionNumber = 0;
-    serialNumber = "0";
-    dateProduced = new Date();
+        + dateProduced
+        + "\n";
   }
 
   public ProductionRecord(
@@ -47,12 +44,20 @@ public class ProductionRecord {
     this.productionNumber = productionNumber;
     this.productId = productId;
     this.serialNumber = serialNumber;
-    this.dateProduced = dateProduced;
+    this.dateProduced = new Timestamp(dateProduced.getTime());
   }
 
-  public ProductionRecord(Product productProduced, int itemCount) {
-    this.productProduced = productProduced;
-    this.itemCount = itemCount;
+  public ProductionRecord(int productionNumber, Product productProduced, int itemCount) {
+    // this.productProduced = productProduced;
+    // this.itemCount = itemCount;
+    this.productionNumber = productionNumber;
+    productId = productProduced.getId();
+    serialNumber =
+        productProduced.getManufacturer().substring(0, 3)
+            + productProduced.getType().getCode()
+            + String.format("%05d", itemCount);
+    Date now = new Date();
+    dateProduced = new Timestamp(now.getTime());
   }
 
   public void setProductionNum(int productionNumber) {
@@ -80,10 +85,10 @@ public class ProductionRecord {
   }
 
   public void setProdDate(Date dateProduced) {
-    this.dateProduced = dateProduced;
+    this.dateProduced = new Timestamp(dateProduced.getTime());
   }
 
   public Date getProdDate() {
-    return dateProduced;
+    return new Timestamp(this.dateProduced.getTime());
   }
 }

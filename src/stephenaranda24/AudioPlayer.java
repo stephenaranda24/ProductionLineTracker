@@ -6,7 +6,6 @@ package stephenaranda24;
  * @version 1.0
  * @since 2019-11-03
  */
-
 public class AudioPlayer extends Product implements MultimediaControl {
   private String supportedAudioFormats;
   private String supportedPlaylistFormats;
