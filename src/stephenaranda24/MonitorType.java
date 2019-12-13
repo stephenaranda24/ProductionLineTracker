@@ -8,7 +8,6 @@ package stephenaranda24;
  */
 
 public enum MonitorType {
-  /** Monitor Type declarations. */
   LCD,
   LED
 }

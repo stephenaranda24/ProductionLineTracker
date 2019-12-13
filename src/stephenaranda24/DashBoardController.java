@@ -41,7 +41,6 @@ public class DashBoardController {
   @FXML private TableColumn<?, ?> productNameCol;
   @FXML private TableColumn<?, ?> productIdCol;
   @FXML private TableColumn<?, ?> manufacturerCol;
-  @FXML private Button deleteButton;
   @FXML private TableColumn<?, ?> itemTypeCol;
   @FXML private TextArea productLogTextArea;
   @FXML private TextField fullNameTextField;
