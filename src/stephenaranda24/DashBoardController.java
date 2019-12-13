@@ -167,8 +167,7 @@ public class DashBoardController {
         int productionNumber = 1;
         ProductionRecord pr =
             new ProductionRecord(productionNumber++, selectedProduct, ItemCount++);
-        String prod = pr.toString();
-        productLogTextArea.appendText(prod);
+        productLogTextArea.appendText(pr.toString());
         productionRecordList.add(pr);
         serialNumber =
             selectedManufacturer.substring(0, 3)
