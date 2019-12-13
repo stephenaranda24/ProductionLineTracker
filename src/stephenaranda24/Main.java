@@ -49,8 +49,8 @@ public class Main extends Application {
    */
 
   public static void errorMessage(String message) {
-    UIManager.put("OptionPane.minimumSize", new Dimension(500, 200));
-    UIManager.put("OptionPane.messageFont", new FontUIResource(new Font("Arial", Font.BOLD, 25)));
+    UIManager.put("OptionPane.minimumSize", new Dimension(250, 100));
+    UIManager.put("OptionPane.messageFont", new FontUIResource(new Font("Arial", Font.BOLD, 20)));
     JOptionPane.showMessageDialog(null, message, "Error", JOptionPane.ERROR_MESSAGE);
   }
   /**
@@ -60,8 +60,8 @@ public class Main extends Application {
    */
 
   public static void infoMessage(String message) {
-    UIManager.put("OptionPane.minimumSize", new Dimension(500, 200));
-    UIManager.put("OptionPane.messageFont", new FontUIResource(new Font("Arial", Font.BOLD, 25)));
+    UIManager.put("OptionPane.minimumSize", new Dimension(250, 100));
+    UIManager.put("OptionPane.messageFont", new FontUIResource(new Font("Arial", Font.BOLD, 20)));
     JOptionPane.showMessageDialog(null, message, "Message", JOptionPane.INFORMATION_MESSAGE);
   }
 }

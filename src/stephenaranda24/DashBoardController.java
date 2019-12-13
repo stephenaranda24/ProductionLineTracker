@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
@@ -40,7 +41,7 @@ public class DashBoardController {
   @FXML private TableColumn<?, ?> productNameCol;
   @FXML private TableColumn<?, ?> productIdCol;
   @FXML private TableColumn<?, ?> manufacturerCol;
-
+  @FXML private Button deleteButton;
   @FXML private TableColumn<?, ?> itemTypeCol;
   @FXML private TextArea productLogTextArea;
   @FXML private TextField fullNameTextField;
@@ -59,7 +60,6 @@ public class DashBoardController {
    * products into the product table view and list view, loading the database of production records
    * into the text area in the production log.
    */
-
   public void initialize() {
     db.initializeDB();
     for (ItemType itemChoices : ItemType.values()) {
@@ -105,18 +105,30 @@ public class DashBoardController {
     if (productName.getText().length() != 0
         && manufacturerName.getText().length() != 0
         && productType.hasProperties()) {
-      productsList = FXCollections.observableArrayList(db.getAvailableDBProducts());
-
-      // Product pr3 = new Prod
-
-      int id = productsList.get(productsList.size()-1).getId();
-      name = productName.getText();
-      manufacturer = manufacturerName.getText();
-      type = productType.getValue();
-      ProductWidgetWithId product = new ProductWidgetWithId(++id, name, manufacturer, type);
-      db.addToProductsDB(name, manufacturer, type);
-      productTableView.getItems().add(product);
-      db.closeDB();
+      if (productsList.size() != 0) {
+        if (manufacturerName.getText().length() < 3) {
+          Main.infoMessage("Manufacturer must contain at least 3 characters. Please try again");
+        } else {
+          productsList = FXCollections.observableArrayList(db.getAvailableDBProducts());
+          int id = productsList.get(productsList.size() - 1).getId();
+          name = productName.getText();
+          manufacturer = manufacturerName.getText();
+          type = productType.getValue();
+          ProductWidgetWithId product = new ProductWidgetWithId(++id, name, manufacturer, type);
+          db.addToProductsDB(name, manufacturer, type);
+          productTableView.getItems().add(product);
+          db.closeDB();
+        }
+      } else {
+        int id = 0;
+        name = productName.getText();
+        manufacturer = manufacturerName.getText();
+        type = productType.getValue();
+        ProductWidgetWithId product = new ProductWidgetWithId(++id, name, manufacturer, type);
+        db.addToProductsDB(name, manufacturer, type);
+        productTableView.getItems().add(product);
+        db.closeDB();
+      }
     } else {
       Main.infoMessage("Please enter all fields");
     }
@@ -168,7 +180,7 @@ public class DashBoardController {
         || (fullNameTextField.getText().length() == 0 && passwordField.getText().length() == 0)) {
       Main.infoMessage("Please complete all fields");
     } else {
-      Main.errorMessage("Already Created Field");
+      Main.errorMessage("Already created credentials");
     }
   }
 
@@ -225,7 +237,7 @@ public class DashBoardController {
       if (productionRecordList.size() == 0) {
         int productionNumber = 1;
         ProductionRecord pr =
-            new ProductionRecord(productionNumber++, selectedProduct, ItemCount++);
+            new ProductionRecord(++productionNumber, selectedProduct, ItemCount++);
         productLogTextArea.appendText(pr.toString());
         productionRecordList.add(pr);
         serialNumber =

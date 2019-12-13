@@ -8,6 +8,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
@@ -33,7 +34,6 @@ class DataBaseManager {
    * This method initializes the database named "ProductionDataBase" and connects to it. It allows
    * for the addition of data into the database.
    */
-
   @FXML
   void initializeDB() {
 
@@ -64,7 +64,6 @@ class DataBaseManager {
     }
   }
   /** This method closes the DataBase opened in initializeDB. */
-
   public void closeDB() {
     try {
       result.close();
