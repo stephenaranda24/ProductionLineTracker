@@ -25,6 +25,8 @@ import stephenaranda24.ProductWidget.ProductWidgetWithId;
  * @since 2019-09-21
  */
 public class DashBoardController {
+  ObservableList<Product> productsList;
+  ObservableList<ProductionRecord> productionRecordList;
   @FXML private ListView<Product> productListView;
   @FXML private ComboBox<String> numbersList;
   @FXML private TextField manufacturerName;
@@ -46,7 +48,9 @@ public class DashBoardController {
   private DataBaseManager db = new DataBaseManager();
   /**
    * This method initializes the numbers associated to the dropdown box named numbersList on the
-   * Produce tab. This method also initializes the item type values
+   * Produce tab. This method contains all of the actions that are required to be implemented
+   * when the program is first started, such as initializing the database, loading the database of products into the product table view and list view,
+   * loading the database of production records into the text area in the production log.
    */
   public void initialize() {
     db.initializeDB();
@@ -61,7 +65,10 @@ public class DashBoardController {
     setupProductLineTable();
     showProductionRecordFromDB();
   }
-  /** */
+
+  /**
+   * This method is used to test the MultimediaControl class along with its constructor(s).
+   */
   public static void testMultimedia() {
     AudioPlayer newAudioProduct =
         new AudioPlayer(
@@ -81,18 +88,19 @@ public class DashBoardController {
     }
   }
   /**
-   * This method prints "Product Added" to the console when the "Add Product" button is clicked on
-   * the Produce Line tab. It also implements the method initializeDB when the same button is
-   * pressed.
+   * This method adds the name, manufacturer, and the item type of the product that is type in
+   * by the user, into its database table by making use of the DataBaseManager class and instances of it. The database
+   * values are loaded into an observable array list which is then displayed onto the product table view and the list view where
+   * the user can create production logs.
    */
   @FXML
   protected void handleAddButtonAction() {
     db.initializeDB();
-    ObservableList<Product> productsList =
-        FXCollections.observableArrayList(db.getAvailableDBProducts());
+    productsList = FXCollections.observableArrayList(db.getAvailableDBProducts());
     // Product pr3 = new Prod
     int id = 0;
-    for (Product obj : productsList) id = obj.getId();
+    for (Product obj : productsList) {
+      id = obj.getId();
     name = productName.getText();
     manufacturer = manufacturerName.getText();
     type = productType.getValue();
@@ -100,28 +108,27 @@ public class DashBoardController {
     db.addToProductsDB(name, manufacturer, type);
     db.closeDB();
     productTableView.getItems().add(product);
+    }
   }
   /**
-   * This method prints "Production Recorded" to the console when the "Record Production" button is
-   * clicked on the Produce tab.
+   * This method records the selected amount of the selected product in the list view onto a production log tab that is formatted using
+   * the toString methods that were written for this program. It calls the method getPrOfSelectedItem which adds the production record into
+   * its own database, which is also updated onto the text area when a production record is created.
    */
   @FXML
   protected void handleRecordButtonAction() {
 
-    //    for (int productionRunProduct = 0;
-    //        productionRunProduct <= numbersList.getSelectionModel().getSelectedIndex();
-    //        productionRunProduct++) {
-    //      db.addToProductionRecordDB(selectedID, serialNumber);
-    //    }
-    getPrOfSelectedItem();
+    getPrOfSelectedProduct();
     System.out.println("Production Recorded");
-
-    ;
   }
 
+  /**
+   * This method loads the production record database values onto the text area in the production log. It does so, by loading all the production
+   * records into an observable array list named productionRecordList and then pulling each necessary field
+   * from each object in the list and printing those values onto the text area after formatting with the toString.
+   */
   public void showProductionRecordFromDB() {
-    ObservableList<ProductionRecord> productionRecordList =
-        FXCollections.observableArrayList((db.getAvailableDBProdRecords()));
+    productionRecordList = FXCollections.observableArrayList((db.getAvailableDBProdRecords()));
     for (ProductionRecord obj : productionRecordList) {
       String productionNum = String.valueOf(obj.getProductionNum());
       String productId = String.valueOf(obj.getProductId());
@@ -135,7 +142,12 @@ public class DashBoardController {
     }
   }
 
-  public void getPrOfSelectedItem() {
+  /**
+   * This method pulls the needed values from the selected product in the list view for the production record
+   * of that product. It uses a for loop to print the production record however many times the user selects
+   * from the numbersList combo box.
+   */
+  public void getPrOfSelectedProduct() {
     int ItemCount = 0;
     Product selectedProduct = productListView.getSelectionModel().getSelectedItem();
     Integer selectedID = productListView.getSelectionModel().getSelectedItem().getId();
@@ -183,14 +195,19 @@ public class DashBoardController {
     }
   }
 
+  /**
+   * This method loads all products in the database into the table view and list view by loading the database values of the products into
+   * an observable array list, and then loading that into each view. Then each column for the table view is set to the designated column in the database table
+   * so that they can show correctly onto the table view.
+   */
   public void setupProductLineTable() {
 
-    ObservableList<Product> data = FXCollections.observableArrayList(db.getAvailableDBProducts());
+     productsList = FXCollections.observableArrayList(db.getAvailableDBProducts());
     productIdCol.setCellValueFactory(new PropertyValueFactory("id"));
     productNameCol.setCellValueFactory(new PropertyValueFactory("name"));
     manufacturerCol.setCellValueFactory(new PropertyValueFactory("manufacturer"));
     itemTypeCol.setCellValueFactory(new PropertyValueFactory("type"));
-    productTableView.setItems(data);
-    productListView.setItems(data);
+    productTableView.setItems(productsList);
+    productListView.setItems(productsList);
   }
 }

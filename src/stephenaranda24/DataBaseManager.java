@@ -107,7 +107,7 @@ class DataBaseManager {
    * This method uses a prepared statement to return the products in the product table as a List of
    * type product.
    *
-   * @return
+   * @return The list of products from the database is returned.
    */
   public List<Product> getAvailableDBProducts() {
     initializeDB();
@@ -131,6 +131,12 @@ class DataBaseManager {
     return productLine;
   }
 
+  /**
+   * This method uses a prepared statement to return the production records in the database table as a List of
+   * type ProductionRecord.
+   *
+   * @return The list of production records from the database is returned.
+   */
   public List<ProductionRecord> getAvailableDBProdRecords() {
     initializeDB();
     List<ProductionRecord> productionRun = new ArrayList<>();
@@ -153,6 +159,11 @@ class DataBaseManager {
     return productionRun;
   }
 
+  /**
+   * This method makes it so that you are able to add a production record into its database table.
+   * @param ID An integer that represents the Id of the production record.
+   * @param serialNumber A string value that represents the serial number of the production record.
+   */
   void addToProductionRecordDB(Integer ID, String serialNumber) {
     initializeDB();
     try {

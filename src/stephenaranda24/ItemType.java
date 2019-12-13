@@ -18,6 +18,10 @@ public enum ItemType {
     this.code = code;
   }
 
+  /**
+   * Accessor/getter method for the code for each ItemType.
+   * @return The code of the item type is returned.
+   */
   public String getCode() {
     return code;
   }
