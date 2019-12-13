@@ -10,20 +10,22 @@ public interface ScreenSpec {
 
   /**
    * Gets the resolution of the specific screen.
+   *
    * @return A string value that represents the resolution of the screen.
    */
-  public String getResolution();
+  String getResolution();
 
   /**
    * Gets the refresh rate of the specific screen.
+   *
    * @return An integer value that represents the refresh rate of the screen.
    */
-  public int getRefreshRate();
+  int getRefreshRate();
 
   /**
    * Gets the response time of the specific screen.
+   *
    * @return An integer value that represent the response time of the screen.
    */
-
-  public int getResponseTime();
+  int getResponseTime();
 }

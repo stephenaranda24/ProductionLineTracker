@@ -6,22 +6,19 @@ package stephenaranda24;
  * @version 1.0
  * @since 2019-11-03
  */
+
 public interface MultimediaControl {
 
-  /**
-   * Demonstrates the multi media control action of playing.
-   */
+  /** Demonstrates the multi media control action of playing. */
+
   void play();
-  /**
-   * Demonstrates the multi media control action of stopping.
-   */
+  /** Demonstrates the multi media control action of stopping. */
+
   void stop();
-  /**
-   * Demonstrates the multi media control action of going to the previous selection.
-   */
+  /** Demonstrates the multi media control action of going to the previous selection. */
+
   void previous();
-  /**
-   * Demonstrates the multi media control action of going to the next selection.
-   */
+  /** Demonstrates the multi media control action of going to the next selection. */
+
   void next();
 }

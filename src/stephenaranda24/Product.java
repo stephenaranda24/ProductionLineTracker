@@ -7,6 +7,7 @@ package stephenaranda24;
  * @version 1.0
  * @since 2019-11-03
  */
+
 public abstract class Product implements Item {
 
   private int Id;
@@ -15,8 +16,9 @@ public abstract class Product implements Item {
   private String Name;
 
   /**
-   * This is an overloaded constructor that contains the products name, its manufacturer, and its item type
-   * as the parameters.
+   * This is an overloaded constructor that contains the products name, its manufacturer, and its
+   * item type as the parameters.
+   *
    * @param name A string value that represents the name of the product.
    * @param manufacturer A string value that represents the manufacturer of the product.
    * @param type An object of the enum class ItemType that represents the item type of the product.
@@ -28,7 +30,9 @@ public abstract class Product implements Item {
   }
 
   /**
-   * An overloaded constructor that takes the product Id, its name, manufacturer,
+   * An overloaded constructor that takes the product Id, its name, manufacturer, and item
+   * type as the arguments.
+   *
    * @param id An integer value that represents the product Id.
    * @param name A string value that represents the name of the product.
    * @param manufacturer A string value that represents the manufacturer of the product.
@@ -42,8 +46,10 @@ public abstract class Product implements Item {
   }
   /**
    * String formatter method.
+   *
    * @return A string value after formatting.
    */
+
   public String toString() {
     return "ID: "
         + Id
@@ -65,39 +71,44 @@ public abstract class Product implements Item {
     return Id;
   }
   /**
-   * {@inheritDoc}
+   *  {@inheritDoc}
    */
+
   public String getManufacturer() {
     return Manufacturer;
   }
   /**
    * {@inheritDoc}
    */
+
   public void setManufacturer(String manufacturer) {
     Manufacturer = manufacturer;
   }
   /**
    * {@inheritDoc}
    */
+
   public String getName() {
     return Name;
   }
   /**
    * {@inheritDoc}
    */
+
   public void setName(String name) {
     this.Name = name;
   }
   /**
    * Mutator/setter method for the name of the product.
+   *
    * @param type An instance of the ItemType interface that represents the item type of the product.
    */
+
   public void setType(ItemType type) {
     this.Type = type;
   }
-  /**
-   * {@inheritDoc}
-   */
+  /** {@inheritDoc} */
+
   public ItemType getType() {
     return Type;
   }
@@ -109,14 +120,17 @@ public abstract class Product implements Item {
  * @version 1.0
  * @since 2019-11-03
  */
+
 class ProductWidget extends Product {
 
   /**
-   * A constructor for the ProductWidget class that contains the product name, manufacturer, and item type
-   * as its parameters.
+   * A constructor for the ProductWidget class that contains the product name, manufacturer, and
+   * item type as its parameters.
+   *
    * @param name A string value that represents the name of the product.
    * @param manufacturer A string value that represents the manufacturer of the product.
-   * @param type An instance of the ItemType interface that represents what the item type of the product is.
+   * @param type An instance of the ItemType interface that represents what the item type of the
+   *     product is.
    */
   ProductWidget(String name, String manufacturer, ItemType type) {
     super(name, manufacturer, type);
@@ -133,7 +147,9 @@ class ProductWidget extends Product {
   static class ProductWidgetWithId extends Product {
 
     /**
-     * A constructor that contains the product Id, its name, manufacturer, and item type os the parameters.
+     * A constructor that contains the product Id, its name, manufacturer, and item type os the
+     * parameters.
+     *
      * @param id An integer value that represents the Id of the product.
      * @param name A string value that represents the name of the product.
      * @param manufacturer A string value that represents the manufacturer of the product.

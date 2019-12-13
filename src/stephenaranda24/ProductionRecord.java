@@ -24,9 +24,11 @@ public class ProductionRecord {
   // private int itemCount = 0;
   /**
    * String formatter method.
+   *
    * @return A string value after formatting.
    */
   @Override
+
   public String toString() {
     return "Prod. Num: "
         + productionNumber
@@ -43,13 +45,14 @@ public class ProductionRecord {
   }
 
   /**
-   * This method is an overloaded constructor for the ProductionRecord class. It takes in a products Id, its serial number, and the date
-   * it was produced.
+   * This method is an overloaded constructor for the ProductionRecord class. It takes in a products
+   * Id, its serial number, and the date it was produced.
    *
    * @param productionNumber An integer value that represents the production number of the product.
    * @param productId An integer value that represents the Id of the product.
    * @param serialNumber A string value that represents the serial number of the product.
-   * @param dateProduced An object of the date class that represents the date the product was produced.
+   * @param dateProduced An object of the date class that represents the date the product was
+   *     produced.
    */
   public ProductionRecord(
       int productionNumber, int productId, String serialNumber, Date dateProduced) {
@@ -60,8 +63,9 @@ public class ProductionRecord {
   }
 
   /**
-   * This method is an overloaded constructor of the ProductionRecord class, which takes in a products production number, the product produced, and its item count
-   * as its parameters.
+   * This method is an overloaded constructor of the ProductionRecord class, which takes in a
+   * products production number, the product produced, and its item count as its parameters.
+   *
    * @param productionNumber An integer value that represents the production number of the product.
    * @param productProduced An object of the Product class that represents the product produced.
    * @param itemCount An integer value that represents the item count of the product.
@@ -81,6 +85,7 @@ public class ProductionRecord {
 
   /**
    * Changes the production number of this production record.
+   *
    * @param productionNumber An integer value that represents the production number.
    */
   public void setProductionNum(int productionNumber) {
@@ -89,6 +94,7 @@ public class ProductionRecord {
 
   /**
    * This method retrieves the production number of the product record.
+   *
    * @return The production number of the production record.
    */
   public int getProductionNum() {
@@ -97,6 +103,7 @@ public class ProductionRecord {
 
   /**
    * This method changes the product Id of the production record.
+   *
    * @param productId An integer value that represents the product Id.
    */
   public void setProductId(int productId) {
@@ -105,6 +112,7 @@ public class ProductionRecord {
 
   /**
    * This method retrieves the product Id of the production record.
+   *
    * @return The product Id of the production record.
    */
   public int getProductId() {
@@ -113,6 +121,7 @@ public class ProductionRecord {
 
   /**
    * This method changes the serial number of the production record.
+   *
    * @param serialNumber A string value that represents the serial number of the production record.
    */
   public void setSerialNum(String serialNumber) {
@@ -121,6 +130,7 @@ public class ProductionRecord {
 
   /**
    * This method retrieves the serial number of the production record.
+   *
    * @return The
    */
   public String getSerialNum() {
@@ -129,6 +139,7 @@ public class ProductionRecord {
 
   /**
    * This method is the setter/mutator method for the production date of the product.
+   *
    * @param dateProduced An object of the Date class.
    */
   public void setProdDate(Date dateProduced) {
@@ -137,6 +148,7 @@ public class ProductionRecord {
 
   /**
    * This method retrieves the production date of the product.
+   *
    * @return A Timestamp object is returned.
    */
   public Date getProdDate() {

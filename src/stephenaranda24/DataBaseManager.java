@@ -33,6 +33,7 @@ class DataBaseManager {
    * This method initializes the database named "ProductionDataBase" and connects to it. It allows
    * for the addition of data into the database.
    */
+
   @FXML
   void initializeDB() {
 
@@ -40,7 +41,7 @@ class DataBaseManager {
       // STEP 1: Register JDBC driver
       final String JDBC_DRIVER = "org.h2.Driver";
       Class.forName(JDBC_DRIVER);
-      System.out.println("Driver Registered.");
+      // System.out.println("Driver Registered.");
 
       // STEP 2: Open a connection
       final String DB_URL = "jdbc:h2:./res/ProductionDataBase";
@@ -56,13 +57,14 @@ class DataBaseManager {
       String USER = props.getProperty("username");
       String PASS = props.getProperty("password");
       conn = DriverManager.getConnection(DB_URL, USER, PASS);
-      System.out.println("Connection opened");
+      // System.out.println("Connection opened");
 
     } catch (ClassNotFoundException | SQLException | IOException exception) {
       exception.printStackTrace();
     }
   }
-  /** This method closes the DataBase opened in intitializeDB. */
+  /** This method closes the DataBase opened in initializeDB. */
+
   public void closeDB() {
     try {
       result.close();
@@ -71,7 +73,7 @@ class DataBaseManager {
     } catch (Exception exception) {
       exception.printStackTrace();
     }
-    System.out.println("DataBase Closed");
+    // System.out.println("DataBase Closed");
   }
 
   /**
@@ -117,7 +119,7 @@ class DataBaseManager {
       preparedStatement = conn.prepareStatement(productQuery);
       result = preparedStatement.executeQuery(); // Execute Query here since Query is SELECT
       while (result.next()) {
-        Integer ID = result.getInt("ID");
+        int ID = result.getInt("ID");
         String name = result.getString("NAME");
         String manufacturer = result.getString("MANUFACTURER");
         String type = result.getString("TYPE");
@@ -132,8 +134,8 @@ class DataBaseManager {
   }
 
   /**
-   * This method uses a prepared statement to return the production records in the database table as a List of
-   * type ProductionRecord.
+   * This method uses a prepared statement to return the production records in the database table as
+   * a List of type ProductionRecord.
    *
    * @return The list of production records from the database is returned.
    */
@@ -145,8 +147,8 @@ class DataBaseManager {
       preparedStatement = conn.prepareStatement(productQuery);
       result = preparedStatement.executeQuery(); // Execute Query here since Query is SELECT
       while (result.next()) {
-        Integer prodNumber = result.getInt("PRODUCTION_NUM");
-        Integer prodID = result.getInt("PRODUCT_ID");
+        int prodNumber = result.getInt("PRODUCTION_NUM");
+        int prodID = result.getInt("PRODUCT_ID");
         String serialNum = result.getString("SERIAL_NUM");
         Date dateProd = result.getTimestamp("DATE_PRODUCED");
         productionRun.add(new ProductionRecord(prodNumber, prodID, serialNum, dateProd));
@@ -161,6 +163,7 @@ class DataBaseManager {
 
   /**
    * This method makes it so that you are able to add a production record into its database table.
+   *
    * @param ID An integer that represents the Id of the production record.
    * @param serialNumber A string value that represents the serial number of the production record.
    */

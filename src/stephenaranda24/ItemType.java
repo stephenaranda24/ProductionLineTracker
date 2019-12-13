@@ -6,6 +6,7 @@ package stephenaranda24;
  * @version 1.0
  * @since 2019-11-03
  */
+
 public enum ItemType {
   AUDIO("AU"),
   VISUAL("VI"),
@@ -20,6 +21,7 @@ public enum ItemType {
 
   /**
    * Accessor/getter method for the code for each ItemType.
+   *
    * @return The code of the item type is returned.
    */
   public String getCode() {

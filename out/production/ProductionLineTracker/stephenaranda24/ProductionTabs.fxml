@@ -5,6 +5,7 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
@@ -15,6 +16,7 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 
 <GridPane alignment="center" hgap="10" prefHeight="514.0" prefWidth="700.0" styleClass="root"
   stylesheets="@BlackWhiteTheme.css" vgap="10" xmlns="http://javafx.com/javafx/8.0.171"
@@ -63,7 +65,7 @@
                     <TableColumn fx:id="productIdCol" prefWidth="74.0" text="Product ID"/>
                     <TableColumn fx:id="productNameCol" prefWidth="269.0" text="Product Name"/>
                     <TableColumn fx:id="manufacturerCol" minWidth="0.0" prefWidth="169.0"
-                      text="Manufaturer"/>
+                      text="Manufacturer"/>
                     <TableColumn fx:id="itemTypeCol" prefWidth="176.0" text="Item Type"/>
                   </columns>
                 </TableView>
@@ -95,6 +97,54 @@
               <children>
                 <TextArea fx:id="productLogTextArea" layoutX="16.0" layoutY="8.0" prefHeight="467.0"
                   prefWidth="672.0"/>
+              </children>
+            </AnchorPane>
+          </content>
+        </Tab>
+        <Tab text="Employee">
+          <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="171.0" prefWidth="568.0"
+              styleClass="roots" stylesheets="@BlackWhiteTheme.css">
+              <children>
+                <GridPane layoutX="35.0" layoutY="33.0" minWidth="-Infinity" prefHeight="128.0"
+                  prefWidth="380.0">
+                  <columnConstraints>
+                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="342.0" minWidth="10.0"
+                      prefWidth="159.0"/>
+                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="563.0" minWidth="10.0"
+                      prefWidth="223.0"/>
+                  </columnConstraints>
+                  <rowConstraints>
+                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                  </rowConstraints>
+                  <children>
+                    <Label text="Full Name:">
+                      <font>
+                        <Font size="17.0"/>
+                      </font>
+                    </Label>
+                    <Label text="Password" GridPane.rowIndex="1">
+                      <font>
+                        <Font size="17.0"/>
+                      </font>
+                    </Label>
+                    <TextField fx:id="fullNameTextField" maxWidth="-Infinity" prefHeight="25.0"
+                      prefWidth="218.0" GridPane.columnIndex="1"/>
+                    <PasswordField fx:id="passwordField" maxWidth="-Infinity" prefHeight="25.0"
+                      prefWidth="218.0" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                  </children>
+                </GridPane>
+                <TextArea fx:id="employeeInfoTextArea" layoutX="35.0" layoutY="243.0"
+                  prefHeight="200.0" prefWidth="630.0"/>
+                <Label layoutX="287.0" layoutY="224.0" text="Employee Information">
+                  <font>
+                    <Font name="System Bold" size="12.0"/>
+                  </font>
+                </Label>
+                <Button fx:id="employeeSubmitButton" layoutX="455.0" layoutY="83.0"
+                  mnemonicParsing="false" onAction="#handleEmployeeButtonAction" prefHeight="28.0"
+                  prefWidth="116.0" text="Create Credentials"/>
               </children>
             </AnchorPane>
           </content>

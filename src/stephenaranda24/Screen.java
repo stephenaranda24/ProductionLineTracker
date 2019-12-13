@@ -7,35 +7,40 @@ package stephenaranda24;
  * @version 1.0
  * @since 2019-11-03
  */
+
 public class Screen implements ScreenSpec {
   private String resolution;
   private int refreshRate;
   private int responseTime;
 
   /**
-   *  {@inheritDoc}
+   * {@inheritDoc}
    */
+
   @Override
   public String getResolution() {
     return resolution;
   }
   /**
-   *  {@inheritDoc}
+   * {@inheritDoc}
    */
+
   @Override
   public int getRefreshRate() {
     return refreshRate;
   }
   /**
-   *  {@inheritDoc}
+   * {@inheritDoc}
    */
+
   @Override
   public int getResponseTime() {
     return responseTime;
   }
 
   /**
-   * The constructor method to the screen class, which makes use of the parameters resolution, refreshRate, and responseTime.
+   * The constructor method to the screen class, which makes use of the parameters resolution,
+   * refreshRate, and responseTime.
    *
    * @param resolution A string value that represents the resolution of the screen.
    * @param refreshRate An integer value that represents the refresh rate of the screen.
@@ -49,6 +54,7 @@ public class Screen implements ScreenSpec {
 
   /**
    * String Formatter method.
+   *
    * @return The string value of the specifications after formatting.
    */
   public String toString() {

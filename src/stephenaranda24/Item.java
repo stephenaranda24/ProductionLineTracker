@@ -6,6 +6,7 @@ package stephenaranda24;
  * @version 1.0
  * @since 2019-11-03
  */
+
 public interface Item {
 
   /**
@@ -15,11 +16,11 @@ public interface Item {
    */
   int getId();
   /**
-   * The mutator/setter method for the name of the item. It makes it so you
-   * can change its value.
+   * The mutator/setter method for the name of the item. It makes it so you can change its value.
    *
    * @param name A string value that represents the name of the Item.
    */
+
   void setName(String name);
 
   /**
@@ -30,8 +31,8 @@ public interface Item {
   String getName();
 
   /**
-   * The mutator/setter method for the manufacturer of the item. It makes it so you can change
-   * its value.
+   * The mutator/setter method for the manufacturer of the item. It makes it so you can change its
+   * value.
    *
    * @param manufacturer A string value that represents the manufacturer of the item.
    */
@@ -46,6 +47,7 @@ public interface Item {
 
   /**
    * The accessor/getter method for the type of item.
+   *
    * @return An instance of the ItemType interface.
    */
   ItemType getType();
