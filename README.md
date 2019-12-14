@@ -13,10 +13,10 @@ This project was made to resolve an issue for a hypothetical production facility
  [https://stephenaranda24.github.io/ProductionLineTracker/](https://stephenaranda24.github.io/ProductionLineTracker/)
   
 ## Diagrams  
-  Class Diagram:
+
    ![PROJECT OUTPUT](Class Diagram.PNG) 
    
-   Production Database Visualization:
+  
  ![PROJECT OUTPUT](DataBase Visual.PNG) 
   
 ## Development Sprints  
