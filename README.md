@@ -8,16 +8,16 @@ This project was made to resolve an issue for a hypothetical production facility
 
 
 ## Demonstration  
-    ![Demo](ProductionLineTrackerDemo.gif)
+   ![PROJECT OUTPUT](ProductionLineTrackerDemo.gif)
 ## Documentation  
  [https://stephenaranda24.github.io/ProductionLineTracker/](https://stephenaranda24.github.io/ProductionLineTracker/)
   
 ## Diagrams  
-  Class Diagram:
-   ![Alt text](ClassDiagram.PNG) 
+
+   ![PROJECT OUTPUT](Class Diagram.PNG) 
    
-   Production Database Visualization:
-   ![Alt text](DataBaseVisual.PNG) 
+  
+ ![PROJECT OUTPUT](DataBase Visual.PNG) 
   
 ## Development Sprints  
   
