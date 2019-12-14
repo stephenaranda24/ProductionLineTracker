@@ -14,10 +14,10 @@ This project was made to resolve an issue for a hypothetical production facility
   
 ## Diagrams  
   Class Diagram:
-   ![Alt text](Class Diagram.PNG) 
+   ![PROJECT OUTPUT](Class Diagram.PNG) 
    
    Production Database Visualization:
-   ![Alt text](DataBase Visual.PNG) 
+ ![PROJECT OUTPUT](DataBase Visual.PNG) 
   
 ## Development Sprints  
   
