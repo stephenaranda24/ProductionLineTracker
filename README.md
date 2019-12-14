@@ -6,14 +6,19 @@ This project was made to resolve an issue for a hypothetical production facility
 
 ***Stephen Aranda***
 
+
 ## Demonstration  
-  
+   ![Alt text](Production Line Tracker Demo.gif) 
   
 ## Documentation  
-  
+ [https://stephenaranda24.github.io/ProductionLineTracker/](https://stephenaranda24.github.io/ProductionLineTracker/)
   
 ## Diagrams  
-  
+  Class Diagram:
+   ![Alt text](Class Diagram.PNG) 
+   
+   Production Database Visualization:
+   ![Alt text](DataBase Visual.PNG) 
   
 ## Development Sprints  
   

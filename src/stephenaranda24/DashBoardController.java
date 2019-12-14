@@ -103,9 +103,9 @@ public class DashBoardController {
     db.initializeDB();
     if (productName.getText().length() != 0
         && manufacturerName.getText().length() != 0
-        && productType.hasProperties()) {
-      if (productsList.size() != 0) {
-        if (manufacturerName.getText().length() < 3) {
+        && productType.getSelectionModel().getSelectedItem() !=null) {
+      if (productsList.size() != 0 ) {
+        if (manufacturerName.getText().length() < 3 ) {
           Main.infoMessage("Manufacturer must contain at least 3 characters. Please try again");
         } else {
           productsList = FXCollections.observableArrayList(db.getAvailableDBProducts());
@@ -118,6 +118,8 @@ public class DashBoardController {
           productTableView.getItems().add(product);
           db.closeDB();
         }
+      } else if (manufacturerName.getText().length() < 3 ) {
+        Main.infoMessage("Manufacturer must contain at least 3 characters. Please try again");
       } else {
         int id = 0;
         name = productName.getText();
@@ -129,7 +131,8 @@ public class DashBoardController {
         db.closeDB();
       }
     } else {
-      Main.infoMessage("Please enter all fields");
+      if (productType.getSelectionModel().isEmpty()||productName.getText().length()==0||manufacturerName.getText().length()==0){
+      Main.infoMessage("Please enter all fields");}
     }
   }
 
@@ -144,9 +147,9 @@ public class DashBoardController {
     if (productListView.getSelectionModel().isEmpty()) {
       Main.infoMessage("Please select a product");
     } else {
+      getPrOfSelectedProduct();
       productLogTextArea.clear();
       System.out.println("Text Area Cleared");
-      getPrOfSelectedProduct();
       loadProductionRecordFromDB();
       System.out.println("Production Recorded");
     }
@@ -178,8 +181,8 @@ public class DashBoardController {
         || passwordField.getText().length() == 0
         || (fullNameTextField.getText().length() == 0 && passwordField.getText().length() == 0)) {
       Main.infoMessage("Please complete all fields");
-    } else {
-      Main.errorMessage("Already created credentials");
+    } else if (employeeInfoTextArea.getText().length()!=0){
+      Main.errorMessage("Text area must be clear. Please clear the text");
     }
   }
 
@@ -244,12 +247,10 @@ public class DashBoardController {
                 + selectedType.getCode()
                 + String.format("%05d", ItemCount);
         db.addToProductionRecordDB(selectedID, serialNumber);
-        ItemCount++;
-
       } else {
         int productionNumber =
             productionRecordList.get(productionRecordList.size() - 1).getProductionNum();
-        ProductionRecord pr = new ProductionRecord(++productionNumber, selectedProduct, ItemCount);
+        ProductionRecord pr = new ProductionRecord(++productionNumber, selectedProduct, ItemCount++);
         productionRecordList.add(pr);
         //    int selectedRecordQuantity++;
         serialNumber =
@@ -257,7 +258,6 @@ public class DashBoardController {
                 + selectedType.getCode()
                 + String.format("%05d", ItemCount);
         db.addToProductionRecordDB(selectedID, serialNumber);
-        ItemCount++;
       }
     }
   }
