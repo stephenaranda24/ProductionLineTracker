@@ -194,15 +194,15 @@ public class DashBoardController {
    */
   public void loadProductionRecordFromDB() {
     productionRecordList = FXCollections.observableArrayList((db.getAvailableDBProdRecords()));
-    for (ProductionRecord obj : productionRecordList) {
-      String productionNum = String.valueOf(obj.getProductionNum());
-      String productId = String.valueOf(obj.getProductId());
-      String serialNumber = String.valueOf(obj.getSerialNum());
-      Date dateProd = obj.getProdDate();
-      ProductionRecord pr1 =
+    for (ProductionRecord Product : productionRecordList) {
+      String productionNum = String.valueOf(Product.getProductionNum());
+      String productId = String.valueOf(Product.getProductId());
+      String serialNumber = String.valueOf(Product.getSerialNum());
+      Date dateProd = Product.getProdDate();
+      ProductionRecord productionRecord =
           new ProductionRecord(
               Integer.parseInt(productionNum), Integer.parseInt(productId), serialNumber, dateProd);
-      showProduction(pr1);
+      showProduction(productionRecord);
     }
   }
 
@@ -238,10 +238,10 @@ public class DashBoardController {
       // Integer.parseInt(numbersList.getSelectionModel().getSelectedItem());
       if (productionRecordList.size() == 0) {
         int productionNumber = 1;
-        ProductionRecord pr =
+        ProductionRecord productionRecord =
             new ProductionRecord(++productionNumber, selectedProduct, ItemCount++);
-        productLogTextArea.appendText(pr.toString());
-        productionRecordList.add(pr);
+        productLogTextArea.appendText(productionRecord.toString());
+        productionRecordList.add(productionRecord);
         serialNumber =
             selectedManufacturer.substring(0, 3)
                 + selectedType.getCode()
