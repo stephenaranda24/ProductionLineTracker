@@ -8,7 +8,7 @@ This project was made to resolve an issue for a hypothetical production facility
 
 
 ## Demonstration  
-    ![Demo](ProductionLineTracker/Production Line Tracker Demo.gif)
+    ![Demo](Production Line Tracker Demo.gif)
 ## Documentation  
  [https://stephenaranda24.github.io/ProductionLineTracker/](https://stephenaranda24.github.io/ProductionLineTracker/)
   
