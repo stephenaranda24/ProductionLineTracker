@@ -45,10 +45,6 @@ class DataBaseManager {
 
       // STEP 2: Open a connection
       final String DB_URL = "jdbc:h2:./res/ProductionDataBase";
-      // to create a database username and password,
-      // type Create USER [username] PASSWORD "[password]"
-      // Properties props = new Properties();
-      // props.load(new FileInputStream("res/"));
       Properties props = new Properties();
       props.setProperty("username", "root");
       props.setProperty("password", "root");
